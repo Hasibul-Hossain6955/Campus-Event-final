@@ -54,12 +54,12 @@ router.get("/", protectRoute, async (req, res) => {
       .limit(limit)
       .populate("user", "username profileImage");
 
-    const totalEvents = await Event.countDocuments();
+    const totalBooks = await Event.countDocuments();
     res.send({
-      events,
+      books,
       currentPage: page,
-      totalEvents,
-      totalPages: Math.ceil(totalEvents / limit),
+      totalBooks,
+      totalPages: Math.ceil(totalBooks / limit),
     });
   } catch (error) {
     console.log("Error in  get event route", error);
